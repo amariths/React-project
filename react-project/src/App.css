@@ -36,3 +36,14 @@
     transform: rotate(360deg);
   }
 }
+
+
+.logo {
+    height: 40px;
+}
+
+#NavLink {
+    text-decoration: none;
+    color: white;
+    margin: 10px;
+}
