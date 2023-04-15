@@ -8,10 +8,11 @@ import Navbar from 'react-bootstrap/Navbar'
 
 import Home from './components/pages/Home'
 import About from './components/pages/About'
-import Products from './components/pages/Products'
+import Products from './components/Products'
 import ErrorPage from './components/pages/ErrorPage'
 import { UserContext } from './UserContext'
-import Login from './components/pages/login'
+import LoggedIn from './components/pages/LoggedIn.tsx'
+
 
 function App() {
     return (
@@ -21,7 +22,7 @@ function App() {
                     <Navbar.Brand>
                         <img
                             className="logo"
-                            src="/images/games-21604.png"
+                            src= "/images/games-21604.png"
                             alt="logo"
                         />
                     </Navbar.Brand>
@@ -34,7 +35,7 @@ function App() {
                             <Link id="NavLink" to={'/about'}>
                                 About
                             </Link>
-                            <Link id="NavLink" to={'/login'}>
+                            <Link id="NavLink" to={'/LoggedIn'}>
                                 Login
                             </Link>
                         </Nav>
@@ -48,15 +49,17 @@ function App() {
                 </Container>
             </Navbar>
 
-            <Home/>
 
-            <UserContext.Provider value={'hej'}>
+
+            <UserContext.Provider value={'det här är useContext :) glöm inte att logga in'}>
+
                 <Routes>
-                    <Route path="/" element={<Home />} />
+                    <Route path="/" element={<Home message="this is props:)"/>} />
                     <Route path="/about" element={<About />} />
-                    <Route path="/products:id" element={<Products />} />
+                    <Route path="/products/:id" element={<Products />} />
+                    <Route path="/products" element={<Products />} />
                     <Route path="*" element={<ErrorPage />} />
-                    <Route path="/login" element={<Login />} />
+                    <Route path="/LoggedIn" element={<LoggedIn />} />
                 </Routes>
             </UserContext.Provider>
         </div>
